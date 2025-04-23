@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Crypto Directory Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #f0f0f0;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #0d0f23;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      color: #ffffff;
+    }
+
+    .site-logo {
+  max-width: 80px;
+  height: auto;
+  }
+
+
+
+    .content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.06);
+      padding: 30px;
+      margin-bottom: 40px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+      transform: translateY(-5px);
+    }
+
+    .section h2 {
+      margin-bottom: 10px;
+      color: #ffcc00;
+      font-size: 1.8rem;
+    }
+
+    .section p {
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 24px;
+      background-color: #ffcc00;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #ffc107;
+    }
+
+    .chart {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .sponsor {
+      background-color: rgba(255,255,255,0.08);
+      padding: 20px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .sponsor-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.sponsor-img:hover {
+  transform: scale(1.05);
+  filter: grayscale(0%);
+}
+
+    .sponsor-img {
+  height: 50px;          /* Tinggi seragam */
+  width: auto;           /* Proporsional */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%);
+}
+.chart {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.chart h2 {
+  font-size: 1.8rem;
+  color: #f39c12;
+  margin-bottom: 20px;
+}
+
+.chart-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0d0f23;
+      color: #bbb;
+      margin-top: 50px;
+    }
+
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .tradingview-widget-container {
+      width: 100% !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header data-aos="fade-down">
+    <img src="img/Crypto Slayer.jpg" alt="Logo Website" class="site-logo" />
+    <h1>Crypto Directory Indonesia</h1>
+    <a href="about.html" class="btn">About</a>
+  </header>
+
+  <div class="content">
+    <section class="section" data-aos="fade-up">
+      <h2>📰 NEWS</h2>
+      <p>Informasi berita dan market global seputar cryptocurrency.</p>
+      <a href="news.html" class="btn">News Information</a>
+    </section>
+
+    <section class="section" data-aos="fade-up" data-aos-delay="100">
+      <h2>👥 Komunitas Crypto</h2>
+      <p>Bergabunglah dengan komunitas crypto terbaik Indonesia!</p>
+      <a href="community.html" class="btn">Jelajahi Komunitas</a>
+    </section>
+
+    <section class="section" data-aos="fade-up" data-aos-delay="200">
+      <h2>🎓 Edukasi Crypto</h2>
+      <p>Belajar gratis tentang Bitcoin dan dunia blockchain.</p>
+      <a href="Edukasi/edukasi.html" class="btn">Mulai Belajar</a>
+    </section>
+
+    <section class="chart" data-aos="zoom-in" data-aos-delay="300">
+      <h2>📈 BTC/USDT</h2>
+
+      <div class="tradingview-widget-container chart-center">
+      <!-- TradingView Widget BEGIN -->
+      <div class="tradingview-widget-container">
+      <div class="tradingview-widget-container__widget"></div>
+      <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text"></span></a></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+        {
+          "symbol": "BINANCE:BTCUSDT",
+          "width": "750",
+          "height": "420",
+          "locale": "en",
+          "dateRange": "12M",
+          "colorTheme": "dark",
+          "isTransparent": true,
+          "autosize": false,
+          "largeChartUrl": "",
+          "noTimeScale": false
+        }
+        </script>
+      </div>
+  <!-- TradingView Widget END -->
+</div>
+    </section>
+
+    <p class="mt-6 border-t border-gray-700 pt-4"></p>
+
+    <section class="sponsor" data-aos="fade-up" data-aos-delay="400">
+      <h2>Exchange Indonesia</h2>
+      <p>Platform perdagangan yang teregulasi di Indonesia, tempat untuk membeli, menjual, dan memperdagangkan berbagai aset kripto sudah terdaftar di OJK dan sesuai dengan peraturan perundang-undangan yang berlaku.</p>
+
+      <section class="sponsor">
+        <div class="sponsor-logos">
+          <a href="https://indodax.com/ref/febriansyah29/1">
+          <img src="exchange/indodax.png" alt="Indodax" style="width: 150px; height: auto;" />
+          </a>
+          <a href="https://pintu.co.id/pro?utm_source=google&utm_medium=cpc&utm_campaign=traffictowebprodekstop&gad_source=1&gclid=EAIaIQobChMIqpK518iCigMVs5VLBR0hIRdSEAAYASAAEgITAfD_BwE">
+          <img src="exchange/pintu.png" alt="Pintu" style="width: 150px; height: auto;" />
+          </a>
+          <a href="https://pluang.com/">
+          <img src="exchange/pluang.png" alt="Pluang" style="width: 150px; height: auto;" />
+          </a>
+          <a href="https://www.tokocrypto.com/account/signup?ref=A91G2DY7">
+          <img src="exchange/tokocrypto.png" alt="Tokocrypto" style="width: 150px; height: auto;" />
+          </a>
+          <a href="https://kripto.ajaib.co.id/">
+          <img src="exchange/ajaib alpha.png" alt="Ajaib Alpha" style="width: 150px; height: auto;" />
+          </a>
+          <a href="https://triv.co.id/id">
+          <img src="exchange/triv.png" alt="Triv" style="width: 130px; height: auto;" />
+          </a>
+        </div>
+      </section>
+    </section>
+
+    <p class="mt-6 border-t border-gray-700 pt-4">----------------------------------------------------------------------</p>
+
+    <section class="social-section" data-aos="fade-up" data-aos-delay="450">
+      <h2>Terhubung dengan Kami:</h2>
+      <p class="mt-6 border-t border-gray-700 pt-4">----------------------------------------------------------------------</p>
+      
+      <div class="social-icons">
+        <a href="https://www.tiktok.com/@febriosht" target="_blank" title="TikTok">
+          <img src="icons/tiktok.svg" alt="TikTok" style="width: 60px; height: 40px; object-fit: contain;">
+        </a>
+        <a href="https://whatsapp.com/channel/0029VawpOWVEAKW5aqMdLQ42" target="_blank" title="WhatsApp">
+          <img src="icons/whatsapp.svg" alt="WhatsApp" style="width: 60px; height: 40px; object-fit: contain;">
+        </a>
+        <a href="https://t.me/CHBabyyBossssss" target="_blank" title="Telegram">
+          <img src="icons/telegram.svg" alt="Telegram" style="width: 60px; height: 40px; object-fit: contain;">
+        </a>
+        <a href="https://x.com/BabyyBossssss" target="_blank" title="X / Twitter">
+          <img src="icons/x.svg" alt="X" style="width: 60px; height: 40px; object-fit: contain;">
+        </a>
+        <a href="https://www.threads.net/@03.febriansyah" target="_blank" title="GitHub">
+          <img src="icons/threads.svg" alt="GitHub" style="width: 60px; height: 40px; object-fit: contain;">
+        </a>
+      </div>
+
+    </section>    
+  </div>
+
+  <footer>
+    &copy; 2025 Crypto Directory Indonesia. All rights reserved.
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+
+</body>
+</html>

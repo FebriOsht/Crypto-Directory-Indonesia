@@ -1,0 +1,88 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0f23;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #12152e;
+  padding: 40px 20px 30px;
+  text-align: center;
+  border-bottom: 2px solid #f39c12;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #f39c12;
+}
+
+#search {
+  padding: 12px 16px;
+  width: 80%;
+  max-width: 400px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.community-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px 20px 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.community {
+  background: #1b1e38;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(255, 165, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.community:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(255, 165, 0, 0.1);
+}
+
+.community-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 100px;
+  margin-bottom: 15px;
+  border: 2px solid #f39c12;
+}
+
+.community h2 {
+  color: #f39c12;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.community p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 16px;
+}
+
+.btn {
+  background-color: #f39c12;
+  color: #121212;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #d48806;
+}

@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Dasar Candlestick",
+    "desc": "Materi edukasi dari komunitas Discord: pengenalan bentuk dan fungsi candlestick.",
+    "img": "https://cdn.discordapp.com/attachments/1195910188197228554/1362232325223485550/image1_0.png?ex=6802f6b7&is=6801a537&hm=306093f7048d53730ce5d0083a2393ed36baeb3d4db3536e8668d6db33974e4e&",
+    "link": "https://discord.com/channels/1152615114760011847/1195910188197228554/1362232325479600199"
+  },
+  {
+    "title": "Support & Resistance",
+    "desc": "Panduan memahami garis support dan resistance dalam analisis teknikal.",
+    "img": "img/discord/support.jpg",
+    "link": "https://discord.com/channels/123456789/987654321/6677889900"
+  },
+  {
+    "title": "Trend Line & Breakout",
+    "desc": "Bagaimana membaca trend line, breakout, dan false breakout.",
+    "img": "img/discord/trend.jpg",
+    "link": "https://discord.com/channels/123456789/987654321/5566778899"
+  }
+]

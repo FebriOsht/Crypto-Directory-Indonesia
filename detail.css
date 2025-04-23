@@ -1,0 +1,47 @@
+/* ==== DETAIL PAGE ==== */
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.detail-logo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 100%;
+  border: 3px solid #f39c12;
+  margin: 20px auto;
+  display: block;
+}
+
+#community-name {
+  font-size: 2rem;
+  color: #f39c12;
+  text-align: center;
+  margin-top: 10px;
+}
+
+#community-desc {
+  font-size: 16px;
+  color: #ddd;
+  margin: 30px 0;
+  text-align: justify;
+  line-height: 1.8;
+}
+
+#community-link {
+  display: inline-block;
+  background: #f39c12;
+  color: #121212;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+#community-link:hover {
+  background: #d48806;
+}

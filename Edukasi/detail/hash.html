@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apa itu Cryptocurrency? - Edukasi Crypto</title>
+  <link rel="stylesheet" href="../../styles.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #121212;
+      color: #f1f1f1;
+      margin: 0;
+    }
+
+    header {
+      background-color: #1e1e1e;
+      padding: 40px 20px 30px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(255, 165, 0, 0.1);
+    }
+
+    header h1 {
+      font-size: 32px;
+      color: #f39c12;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .edu-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .edu-content h2 {
+      color: #f39c12;
+      margin-top: 30px;
+      font-size: 22px;
+    }
+
+    .edu-content p {
+      font-size: 18px;
+      line-height: 1.8;
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    .edu-content ul {
+      margin-left: 20px;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .edu-content ul li {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .btn-back {
+      display: inline-block;
+      background-color: #f39c12;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .btn-back:hover {
+      background-color: #d48806;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 26px;
+      }
+
+      .edu-content p {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Apa itu Hash ?</h1>
+  </header>
+
+  <main>
+    <img src="../../img/Hash.png" alt="Apa itu Blockchain" class="edu-image">
+
+    <section class="edu-content">
+
+      <p>
+        Hash adalah proses menghasilkan output berukuran tetap dari input berukuran berbeda melalui penggunaan rumus matematika yang dikenal sebagai fungsi hash. Fungsi hash konvensional memiliki berbagai macam use case, termasuk pencarian basis data, analisis data berukuran besar, dan manajemen 1  data. Fungsi-fungsi hash kriptografi sangat luas dipakai di aplikasi-aplikasi keamanan informasi, seperti autentikasi pesan dan sidik jari digital. 2  Fungsi-fungsi hash kriptografi adalah bagian penting dari proses penambangan dan berperan pada pembuatan alamat dan kunci 3  baru.
+      </p>
+
+      <p>
+        Proses menghasilkan output berukuran tetap dari input berukuran berbeda melalui fungsi hash. Fungsi hash konvensional dan kriptografi bersifat deterministik, menghasilkan output yang sama untuk input yang sama. Fungsi hash kriptografi, yang digunakan dalam mata uang kripto, didesain sebagai fungsi satu arah, sehingga sulit untuk mendapatkan input dari output.
+      </p>
+
+      <p>
+        Di mana algoritma seperti SHA-256 menghasilkan output 256 bit, dan SHA-1 menghasilkan 160 bit. Perubahan kecil pada input menghasilkan hash yang sangat berbeda, tetapi ukuran output tetap konstan. Fungsi hash konvensional digunakan dalam pencarian basis data dan analisis data, sementara fungsi hash kriptografi digunakan dalam keamanan informasi, seperti autentikasi pesan.
+      </p>
+
+      <h2>Fungsi hash kriptografi harus memiliki tiga sifat:</h2>
+      <ul>
+        <li>Collision resistance (sulit menemukan dua input berbeda dengan output sama)</li>
+        <li>Preimage resistance (sulit menemukan input dari output).</li>
+        <li>Preimage resistance kedua (sulit menemukan input kedua yang berbenturan dengan input tertentu)</li>
+      </ul>
+
+      <h2>Dalam konteks Bitcoin:</h2>
+      <p>
+        Fungsi hash kriptografi penting dalam penambangan, pembuatan alamat, dan kunci baru. Hashing memungkinkan verifikasi data yang besar dengan cepat karena sifatnya yang deterministik. Blockchain Bitcoin menggunakan hashing untuk menghubungkan transaksi ke dalam blok dan membuat tautan kriptografi antar blok.
+      </p>
+
+      <p>
+        Penambangan Bitcoin melibatkan operasi hashing yang banyak untuk menemukan solusi blok yang valid, di mana penambang harus menghasilkan hash output yang dimulai dengan sejumlah angka nol. Kesulitan penambangan disesuaikan oleh protokol Bitcoin berdasarkan tingkat hash jaringan.
+      </p>
+
+      <a href="../edukasi.html" class="btn-back">← Kembali ke Daftar Edukasi</a>
+    </section>
+  </main>
+
+</body>
+
+</html>

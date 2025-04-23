@@ -1,0 +1,125 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #0d0f23;
+  color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+}
+
+.news-header {
+  background-color: #12152e;
+  text-align: center;
+  padding: 50px 20px 30px;
+  border-bottom: 2px solid #f39c12;
+}
+
+.news-header h1 {
+  font-size: 2.2rem;
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+.news-header p {
+  font-size: 16px;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 40px 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.news-card {
+  background: #1b1e38;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(255, 165, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+}
+
+.news-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(255, 165, 0, 0.2);
+}
+
+.news-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #333;
+}
+
+.news-card h3 {
+  font-size: 18px;
+  color: #f39c12;
+  margin: 16px;
+}
+
+.news-card p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0 16px 16px;
+  text-align: justify;
+  flex: 1;
+}
+
+.news-card a {
+  margin: 0 16px 20px;
+  align-self: flex-start;
+  background-color: #f39c12;
+  color: #121212;
+  font-weight: bold;
+  padding: 8px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.news-card a:hover {
+  background-color: #d48806;
+}
+
+.footer {
+  background-color: #12152e;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #888;
+  border-top: 1px solid #f39c1280;
+}
+
+.news-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px 10px;
+}
+
+#news-search {
+  padding: 12px;
+  font-size: 16px;
+  width: 280px;
+  border-radius: 6px;
+  border: none;
+}
+
+#news-category {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background: #f39c12;
+  color: #121212;
+  font-weight: bold;
+}
+
