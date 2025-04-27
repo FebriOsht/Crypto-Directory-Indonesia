@@ -13,11 +13,11 @@ function displayCommunities(data) {
     <div class="community">
       <img src="${com.logo}" alt="${com.name}" class="community-logo">
       <h2>${com.name}</h2>
-      <p>${com.description}</p>
       <a href="detail/${com.id}.html" class="btn">Detail</a>
     </div>
   `).join("");
 }
+
 
 
 function loadCommunityDetail() {
