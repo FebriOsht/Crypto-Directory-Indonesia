@@ -44,24 +44,6 @@ a:hover {
   background: #d48806;
 }
 
-
-main {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.detail-logo {
-  width: 160px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 100%;
-  border: 3px solid #f39c12;
-  margin: 20px auto;
-  display: block;
-}
-
 #community-name {
   font-size: 2rem;
   color: #f39c12;
