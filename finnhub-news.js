@@ -4,6 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   const url = `https://finnhub.io/api/v1/news?category=general&token=${apiKey}`;
 
+  const categories = {
+    all: "bitcoin OR crypto OR interest rates OR inflation OR economy OR stock market OR gold OR commodities OR recession OR crypto regulation OR crypto news OR artificial intelligence OR biotechnology  OR space exploration OR renewble energy OR bloomberg", 
+    crypto: "bitcoin OR crypto OR blockchain OR crypto regulation OR crypto news OR crypto market sentiment OR institutional adoption of crypto OR crypto security",
+    market: "stock market OR S&P OR Nasdaq OR equities OR bond yields OR major stock indices OR corporate financial statements OR fiscal policy OR interest rates OR inflation and the stock market OR stock market investor sentiment OR stock market technical analysis OR dividens",
+    economy: "inflation OR CPI OR GDP OR recession OR interest rates OR FOMC OR federal reserve OR jerome powell OR global gconomic growth OR inflation rate OR monetary policy OR International Trade OR geopolitics economy OR global economy OR commodity prices OR global dept OR global Labor market OR quantitative easing OR economic growth OR quantitave tightening OR economy US",
+  };
+
   fetch(url)
     .then(res => res.json())
     .then(data => {
