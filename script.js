@@ -5,10 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .then(data => displayCommunities(data))
       .catch(err => console.error("Fetch error:", err));
   }
-
-  if (document.getElementById("community-name")) {
-    loadCommunityDetail();
-  }
 });
 
 function displayCommunities(data) {
@@ -18,10 +14,11 @@ function displayCommunities(data) {
       <img src="${com.logo}" alt="${com.name}" class="community-logo">
       <h2>${com.name}</h2>
       <p>${com.description}</p>
-      <a href="detail.html#${com.id}" class="btn">Detail</a>
+      <a href="detail/${com.id}.html" class="btn">Detail</a>
     </div>
   `).join("");
 }
+
 
 function loadCommunityDetail() {
   const id = window.location.hash.substring(1); // Ambil dari #hash
