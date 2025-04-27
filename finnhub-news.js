@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("crypto-news"); // Bisa diubah jadi "market-news"
   const apiKey = "cvu0g6hr01qjg136pf60cvu0g6hr01qjg136pf6g";
+  const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
   const url = `https://finnhub.io/api/v1/news?category=general&token=${apiKey}`;
 
   fetch(url)
@@ -29,3 +30,10 @@ document.addEventListener("DOMContentLoaded", () => {
       container.innerHTML = `<p style="color:red;">Gagal memuat berita market global.</p>`;
     });
 });
+
+fetch(proxyUrl + apiUrl)
+  .then(res => res.json())
+  .then(data => {
+    // lanjutkan tampilkan berita
+  })
+  .catch(err => console.error("Gagal fetch data:", err));

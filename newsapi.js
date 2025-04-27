@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentQuery = categories.all;
 
   function fetchNews(query) {
-    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=en&sortBy=publishedAt&apiKey=${apiKey}`;
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+    const url = `${proxyUrl}https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=en&sortBy=publishedAt&apiKey=${apiKey}`;
 
     fetch(url)
       .then(res => {

@@ -23,32 +23,37 @@ document.addEventListener("DOMContentLoaded", () => {
 function displayCommunities(data) {
   const container = document.getElementById("community-list");
   container.innerHTML = data.map(com => `
-        <div class="community">
-            <img src="${com.logo}" alt="${com.name}" class="community-logo">
-            <h2>${com.name}</h2>
-            <p>${com.description}</p>
-            <a href="detail.html?id=${com.id}" class="btn">Detail</a>
-        </div>
+    <div class="community">
+      <img src="${com.logo}" alt="${com.name}" class="community-logo">
+      <h2>${com.name}</h2>
+      <p>${com.description}</p>
+      <a href="detail.html#${com.id}" class="btn">Detail</a>
+    </div>
   `).join("");
 }
 
+
 // 🔥 Menampilkan daftar komunitas di `community.html`
-function loadCommunityList() {
+function loadCommunityDetail() {
+  const id = window.location.hash.substring(1); // Ganti dari searchParams jadi hash
+
   fetch("data.json")
     .then(res => res.json())
     .then(data => {
-      const container = document.getElementById("community-list");
-      container.innerHTML = data.map(com => `
-        <div class="community">
-          <img src="${com.logo}" alt="${com.name}" class="community-logo">
-          <h2>${com.name}</h2>
-          <p>${com.description}</p>
-          <a href="detail/${com.id}.html" class="btn">Detail</a>
-        </div>
-      `).join("");
+      const community = data.find(com => com.id == id);
+      if (community) {
+        document.getElementById("community-logo").src = community.logo;
+        document.getElementById("community-name").textContent = community.name;
+        document.getElementById("community-desc").textContent = community.description;
+        document.getElementById("community-link").href = community.link;
+      }
     })
-    .catch(err => console.error("Gagal memuat data:", err));
+    .catch(err => {
+      console.error("Gagal load detail:", err);
+      document.querySelector('main').innerHTML = `<p style="color:red;">❌ Gagal memuat detail komunitas.</p>`;
+    });
 }
+
 
 // 🔥 Menampilkan detail komunitas di `detail.html`
 function loadCommunityDetail() {
