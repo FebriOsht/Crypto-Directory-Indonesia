@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulasi DCA Bitcoin</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #f39c12;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #1e2a4a;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+    label {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select {
+      padding: 10px;
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background: #f39c12;
+      color: #000;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e67e22;
+    }
+    .result {
+      margin-top: 30px;
+      background: #273c75;
+      padding: 20px;
+      border-radius: 15px;
+    }
+    ul li {
+      margin-bottom: 8px;
+    }
+    .calendar-image {
+      display: block;
+      margin: 20px auto;
+      max-width: 100px;
+      opacity: 0.8;
+    }
+    .nominal-info {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #f1c40f;
+      text-align: center;
+    }
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .floating-video {
+     position: fixed;
+     top: 20px;
+    right: 20px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    border-radius: 10px;
+    overflow: hidden;
+    }
+    .floating-video iframe {
+    border: none;
+    border-radius: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+    <div class="floating-video">
+    <p>Borong Bitcoin - Timothy Ronald</p>
+    <iframe width="300" height="170" src="https://www.youtube.com/embed/videoseries?list=PLNS9UMIiPz8zi4zWTif5kaU3xi-7DNu-8" 
+      title="Borong Bitcoin - Timothy Ronald"
+      frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <h1>Simulasi Dollar Cost Averaging (DCA) Bitcoin</h1>
+  <div class="container">
+    <label for="satuan">Pilih Mata Uang :</label>
+    <select id="satuan">
+    <option value="rp">Rupiah (Rp)</option>
+    <option value="usdt">StableCoin (USDT)</option>
+    </select>
+
+    <label for="jumlah">Jumlah yang Ditabung (per-hari/bulan) :</label>
+    <input type="number" id="jumlah" placeholder="Contoh: 50000">
+
+    <label for="frekuensi">Frekuensi Menabung:</label>
+    <select id="frekuensi">
+      <option value="harian">Harian</option>
+      <option value="bulanan">Bulanan</option>
+    </select>
+
+    <label for="durasi">Durasi (dalam jumlah hari/bulan) :</label>
+    <input type="number" id="durasi" placeholder="Contoh: 30">
+
+    <label for="tanggal">Tanggal Mulai :</label>
+    <input type="date" id="tanggal">
+
+    <button onclick="hitungDCA()">Simulasikan</button>
+  </div>
+
+  <div class="result" id="hasil"></div>
+
+  <script>
+    function hitungDCA() {
+      const jumlah = parseFloat(document.getElementById("jumlah").value);
+      const satuan = document.getElementById("satuan").value;
+      const frekuensi = document.getElementById("frekuensi").value;
+      const durasi = parseInt(document.getElementById("durasi").value);
+      const mulai = new Date(document.getElementById("tanggal").value);
+      const hasilDiv = document.getElementById("hasil");
+
+      if (!jumlah || !durasi || !mulai) {
+        alert("Harap isi semua input!");
+        return;
+      }
+
+      let kalenderHTML = "<h2>Jadwal Menabung:</h2><ul>";
+      let total = 0;
+      let date = new Date(mulai);
+      let startDate = "";
+      let endDate = "";
+
+      for (let i = 0; i < durasi; i++) {
+        total += jumlah;
+
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, '0');
+        const d = String(date.getDate()).padStart(2, '0');
+        const gCalDate = `${y}${m}${d}`;
+
+        if (i === 0) startDate = gCalDate;
+        if (i === durasi - 1) endDate = gCalDate;
+
+        const satuanText = satuan === "rp" ? "Rp" : "USDT";
+        kalenderHTML += `<li>🗓️ ${date.toLocaleDateString("id-ID")} — <strong>${satuanText} ${jumlah.toLocaleString()}</strong></li>`;
+
+        if (frekuensi === "harian") {
+          date.setDate(date.getDate() + 1);
+        } else {
+          date.setMonth(date.getMonth() + 1);
+        }
+      }
+      kalenderHTML += `</ul><h3>Total Ditabung: <span style="color:#f1c40f">${satuan === "rp" ? "Rp" : "USDT"} ${total.toLocaleString()}</span></h3>`;
+
+      const satuanText = satuan === "rp" ? "Rp" : "USDT";
+      const gCalLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=Rencana+Menabung+DCA+Bitcoin&dates=${startDate}/${endDate}&details=Jangan+lupa+menabung+${satuanText}+${jumlah}+secara+${frekuensi}&sf=true&output=xml`;
+      kalenderHTML += `<a href="${gCalLink}" target="_blank" style="color:#f39c12;text-decoration:underline;font-size:16px;">➕ Tambahkan ke Kalender </a>`;
+
+      kalenderHTML += `<div class="nominal-info">Nominal Per Tabungan: ${satuanText} ${jumlah.toLocaleString()}</div>`;
+
+      hasilDiv.innerHTML = kalenderHTML;
+    }
+  </script>
+</body>
+
+</html>

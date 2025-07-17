@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Simulasi Calculator Crypto</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    h1 {
+      color: #f39c12;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: none;
+      background: #1f1f1f;
+      color: white;
+    }
+
+    button {
+      background-color: #f39c12;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    .result {
+      margin-top: 25px;
+      background: #1b1e38;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Simulasi Calculator Crypto</h1>
+
+  <label>Pilih Mata Uang:</label>
+  <select id="mataUang">
+    <option value="rp">Rupiah (Rp)</option>
+    <option value="usdt">StableCoin (USDT)</option>
+  </select>
+
+  <label>Harga Beli :</label>
+  <input type="number" id="hargaBeli" placeholder="Contoh: 100000">
+
+  <label>Harga Jual :</label>
+  <input type="number" id="hargaJual" placeholder="Contoh: 150000">
+
+  <label>Jumlah Koin Dibeli :</label>
+  <input type="number" id="jumlahKoin" placeholder="Contoh: 2">
+
+  <button onclick="hitungProfit()">Hitung Keuntungan</button>
+
+  <div class="result" id="hasil" style="display: none;"></div>
+
+  <script>
+    function formatMataUang(nilai, mataUang) {
+      if (mataUang === 'rp') {
+        return 'Rp ' + nilai.toLocaleString('id-ID');
+      } else if (mataUang === 'usdt') {
+        return '$' + nilai.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      } else {
+        return nilai;
+      }
+    }
+
+    function hitungProfit() {
+      const beli = parseFloat(document.getElementById('hargaBeli').value);
+      const jual = parseFloat(document.getElementById('hargaJual').value);
+      const jumlah = parseFloat(document.getElementById('jumlahKoin').value);
+      const mataUang = document.getElementById('mataUang').value;
+
+      if (isNaN(beli) || isNaN(jual) || isNaN(jumlah)) {
+        alert("Harap isi semua kolom dengan angka yang valid.");
+        return;
+      }
+
+      const profitPerKoin = jual - beli;
+      const totalProfit = profitPerKoin * jumlah;
+      const persentase = (profitPerKoin / beli) * 100;
+
+      const hasilDiv = document.getElementById('hasil');
+      hasilDiv.style.display = 'block';
+      hasilDiv.innerHTML = `
+        <strong>Hasil:</strong><br>
+        Keuntungan per koin: ${formatMataUang(profitPerKoin, mataUang)}<br>
+        Total keuntungan: ${formatMataUang(totalProfit, mataUang)}<br>
+        Persentase keuntungan: ${persentase.toFixed(2)}%
+      `;
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Free Education</title>
+  <link rel="stylesheet" href="Edukasi/edukasi.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    header {
+      text-align: center;
+      padding: 30px 20px 10px;
+    }
+
+    nav {
+      background-color: #1b1e38;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    nav button {
+      background: none;
+      border: none;
+      color: #f39c12;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 10px 15px;
+    }
+
+    nav button:hover {
+      background-color: #2c2f4a;
+      border-radius: 5px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .edu-card {
+      background: #1b1e38;
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      display: none;
+    }
+
+    .edu-card img {
+      width: 100%;
+      max-width: 250px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .edu-card h3 {
+      color: #f39c12;
+    }
+
+    .edu-card p {
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      background-color: #f39c12;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background-color: #e67e22;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>FREE EDUCATION</h1>
+    <p style="margin-top:-10px;">Temukan materi eduasi seputar cryptocurrency dan coba simulasi untuk membantu anda untuk masuk ke dunia cryptocurrency (GRATIS)</p>
+  </header>
+
+  <!-- Navbar untuk Filter -->
+  <nav>
+    <button onclick="filterCards('edukasi')">Edukasi</button>
+    <button onclick="filterCards('simulasi')">Simulasi</button>
+  </nav>
+
+  <!-- Container untuk Kartu Edukasi dan Simulasi -->
+  <div class="card-container">
+    <!-- Konten Edukasi -->
+    <div class="edu-card" data-category="edukasi">
+      <img src="img/Crypto Education.png" alt="Crypto Education">
+      <h3>Crypto Education</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="Edukasi/edukasi.html" class="btn">Next</a>
+    </div>
+
+    <div class="edu-card" data-category="edukasi">
+      <img src="img/Risk Profile.png" alt="Risk Profile">
+      <h3>Risk Profile</h3>
+      <p>Kenali Risk Profile anda, untuk melihat sampai mana pengetahuan anda</p>
+      <a href="Edukasi/risk-profile.html" class="btn">Next</a>
+    </div>
+
+    <div class="edu-card" data-category="edukasi">
+      <img src="img/Manajemen Portofolio.png" alt="Manajemen Portofolio">
+      <h3>Simulasi Manajemen Portofolio</h3>
+      <p>Membantu untuk menghitung manajemen keuangan anda dengan cara lebih simpel</p>
+      <a href="simulasi/simulasi-investasi.html" class="btn">Next</a>
+    </div>
+
+    <!-- Konten Simulasi -->
+    <div class="edu-card" data-category="simulasi">
+      <img src="img/Risk Profile.png" alt="Risk Profile">
+      <h3>Risk Profile</h3>
+      <p>Kenali Risk Profile anda, untuk melihat sampai mana pengetahuan anda</p>
+      <a href="Edukasi/risk-profile.html" class="btn">Next</a>
+    </div>
+
+    <div class="edu-card" data-category="simulasi">
+      <img src="img/Manajemen Portofolio.png" alt="Manajemen Portofolio">
+      <h3>Simulasi Manajemen Portofolio</h3>
+      <p>Membantu untuk menghitung manajemen keuangan anda dengan cara lebih simpel</p>
+      <a href="simulasi/simulasi-investasi.html" class="btn">Next</a>
+    </div>
+
+    <div class="edu-card" data-category="simulasi">
+      <img src="img/Bitcoin Savings.png" alt="Simulasi Menabung Bitcoin">
+      <h3>Dollar Cost Averaging (DCA) Bitcoin</h3>
+      <p>Membantu anda menabung Bitcoin dengan Konsisten menggnakan teknik Dollar Cost Averaging (DCA)</p>
+      <a href="simulasi-dca.html" class="btn">Next</a>
+    </div>
+
+    <div class="edu-card" data-category="simulasi">
+      <img src="img/Simulasi Calculator Crypto.png" alt="Simulasi Calculator Crypto">
+      <h3>Calculator Crypto</h3>
+      <p>Membantu untuk menghitung Keuntungan/Kerugian anda dalam Trading</p>
+      <a href="simulasi-calculator-crypto.html" class="btn">Next</a>
+    </div>
+
+  </div>
+
+  <!-- JavaScript Filter -->
+  <script>
+    function filterCards(kategori) {
+      const cards = document.querySelectorAll('.edu-card');
+      cards.forEach(card => {
+        const type = card.getAttribute('data-category');
+        card.style.display = (type === kategori) ? 'block' : 'none';
+      });
+    }
+
+    // Tampilkan default Edukasi saat pertama kali
+    window.onload = () => {
+      filterCards('edukasi');
+    };
+  </script>
+</body>
+</html>

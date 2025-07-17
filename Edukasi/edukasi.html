@@ -6,181 +6,893 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Edukasi Crypto</title>
   <link rel="stylesheet" href="edukasi.css" />
+  <script src="questions.js"></script>
+  <script src="risk-simulasi.js" defer></script>
+
 </head>
 <body>
 
   <header>
     <h1>Crypto Education</h1>
-    <p style="margin-top:-10px;">Temukan materi belajar seputar cryptocurrency</p>
+    <p style="margin-top:-10px;">Temukan materi edukasi seputar cryptocurrency</p>
   </header>
 
-  <main class="edu-container" id="edu-list">
+<nav class="level-nav">
+  <button onclick="showAllLevels()">🔁 Semua</button>
+  <button onclick="filterByLevel('pemula')">🟢 Pemula</button>
+  <button onclick="filterByLevel('menengah')">🟡 Menengah</button>
+  <button onclick="filterByLevel('advance')">🔴 PRO</button>
+</nav>
 
-    <div class="edu-card">
+
+  </section>
+
+    <!--<section id="quiz-container" class="form-section" style="background:#1b1e38; border-radius: 12px; padding: 30px; max-width: 900px; margin: 40px auto; color: white;">
+      <h2 style="color:#f39c12; text-align:center;">🧪 Simulasi Risk Profile</h2>
+    </section>-->
+
+  <main class="edu-container" id="edu-list">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Bitcoin.png" alt="Blockchain">
       <h3>Apa itu Bitcoin ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/bitcoin.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/1.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Apa itu crypto.png" alt="Apa itu Crypto">
       <h3>Apa itu Cryptocurrency ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/apa-itu-crypto.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/2.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Blockchain.png" alt="Blockchain">
       <h3>Apa itu Blockchain ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/blockchain.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/3.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Keamanan Blockchain.png" alt="Blockchain">
       <h3>Apa yang Membuat Blockchain Aman ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/keamanan-blockchain.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/4.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card"  data-level="pemula">
       <img src="../img/Hash.png" alt="Blockchain">
       <h3>Apa itu Hash ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/hash.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/5.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Mining.png" alt="Blockchain">
       <h3>Apa itu Mining Crypto ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/mining.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/6.html" class="btn">Baca Selengkapnya</a>
     </div>
 
     <!-- Tambahkan materi lainnya di sini -->
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Fundamental.png" alt="Fundamental">
       <h3>Bagaimana cara lihat fundamental dari crypto?
       </h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/fundamental.html" class="btn">Baca Selengkapnya</a>
+      <a href="7.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Liquidity.png" alt=" Liquidity">
       <h3>Apa itu Liquidity ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/Liquidity.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/8.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Decentralized Science (Desci).png" alt="Decentralized Science">
       <h3>Apa itu Decentralized Science (Desci) ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/Decentralized-Science-(Desci).html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/9.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Altcoins Season.png" alt="Altcoin Season">
       <h3>Apa itu Altcoin Season ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/Altcoins-Season.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/10.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="advance">
       <img src="../img/the 60 rules.png" alt="The 60% Rules">
       <h3>Apa itu "the 60% rules" ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/the60rules.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/11.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="advance">
       <img src="../img/Elevator Concept.png" alt="elevator concept">
       <h3>The Elevator Concept in Crypto</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/Elevator-Concept.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/12.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Smart Money.png" alt="smart money">
       <h3>Apa itu Smart Money ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/smart-money.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/13.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="advance">
       <img src="../img/2 Jenis Investor Crypto.png" alt="2 Jenis Investor Crypto">
       <h3>2 Jenis Investor Crypto</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/2-jenis-investor.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/14.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Hold Altcoins.png" alt="Hold Altcoins">
       <h3>Berapa lama harus hold Altcoins ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/hold-altcoins.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/15.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Imbalances.png" alt="Imbalances">
       <h3>Apa itu imbalances?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/imbalances.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/16.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Optimalisasi Portofolio.png" alt="Optimalisasi Portofolio">
       <h3>Bagaimana cara optimalisasi portfofolio ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/optimalisasi-portofolio.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/17.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Reverange Trading.png" alt="Reverange Trading">
       <h3>Apa itu Reverange Trading ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/reverange-trading.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/18.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="pemula">
       <img src="../img/Masalah Utama Investor Pemula.png" alt="Masalah Utama Investor Pemula">
-      <h3>Apa itu Reverange Trading ?</h3>
+      <h3>Masalah Utama Investor Pemula</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/masalah-utama.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/19.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Ritme Pergerakan Harga.png" alt="Ritme Dalam Pergerakan Hargaa">
       <h3>Ritme Dalam Pergerakan Harga</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/ritme-pergerakan-harga.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/20.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="menengah">
       <img src="../img/Optimalkan Profit.png" alt="Cara Optimalkan Profit">
       <h3>Cara Optimalkan Profit</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/optimalkan-profit.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/21.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card" data-level="advance">
       <img src="../img/Trading Momentum.png" alt="Trading Momentum">
       <h3>Candlestick formation & swing moves duration to determine trading momentum:</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/trading-momentum.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/22.html" class="btn">Baca Selengkapnya</a>
     </div>
 
-    <div class="edu-card">
+    <div class="edu-card"   data-level="advance">
       <img src="../img/Depin.png" alt="Depin">
       <h3>Apa itu DEPIN ?</h3>
       <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
-      <a href="detail/DEPIN.html" class="btn">Baca Selengkapnya</a>
+      <a href="detail/23.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card"  data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1202817520458014730/Copy_of_Copy_of_AVS_1.png?ex=683fbd1c&is=683e6b9c&hm=a53e21608e0c652142a2a1df11842d59c58a85d8ec5fed66f6cfc9e9e0102433&" alt="Pengaruh Amerika Serikat Terhadap Crypto">
+      <h3>Apa Pengaruh Pemilu di Amerika Serikat dan Harga Bitcoin ?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/24.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1203184401609924688/Copy_of_Copy_of_AVS_2.png?ex=683fc14b&is=683e6fcb&hm=d753a93df3f39307cc85b2c62797d0e424bcebc685cbcc455f68d7cbca0f6220&" alt="Apa pengaruh halving dengan harga Bitcoin?">
+      <h3>Apa pengaruh halving dengan harga Bitcoin?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/25.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1203582756823638026/20240204_125616_0000.png?ex=683f3a0a&is=683de88a&hm=b3d2136fae4d68f71e9b2df7e90072243c19211fec13f4d3b67a393ee91d89de&" alt="Apa itu Exchange Traded Funds (ETF) dan bagaimana pengaruhnya terhadap Bitcoin?">
+      <h3>Apa itu Exchange Traded Funds (ETF) dan bagaimana pengaruhnya terhadap Bitcoin?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/26.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="../img/ChoCh.png" alt="Apa itu Change of Character (ChoCh)?">
+      <h3>Apa itu Change of Character (ChoCh)?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/27.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1204640560288243792/Copy_of_Copy_of_AVS_3.png?ex=683fc772&is=683e75f2&hm=91d5799709fd9b877767f7895eb85358163368aef955325a3a648b4d3a2df628&" alt="Diversifikasi atau all in aja bang?">
+      <h3>Diversifikasi atau all in aja bang?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/28.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1205019308510679092/Copy_of_Copy_of_Copy_of_AVS.png?ex=683f2def&is=683ddc6f&hm=3f6b14cbe8e6e53313fa0c73a7633c4618c28e989c7738228440ffed7602a9b2&" alt="Emang bisa dapet keuntungan di crypto tanpa modal?">
+      <h3>Emang bisa dapet keuntungan di crypto tanpa modal?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/29.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1205388787858018304/Copy_of_Copy_of_Copy_of_AVS_1.png?ex=683f348a&is=683de30a&hm=50e5af4ca4ea3916d1ee0f6860f2db9cf3005d954bcb8376dd282db27ee846a8&" alt="Perhatikan tiga hal ini sebelum membeli Altcoins">
+      <h3>Perhatikan tiga hal ini sebelum membeli Altcoins</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/30.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1206184298512781342/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_CRYPTO_SWITCHING_TIMING.png?ex=683f766a&is=683e24ea&hm=788d7fdd1a57a681a0f6b17e65aee680eb19b520005ea145984850b333621810&" alt="Apa itu strategi konsentrasi di market crypto?">
+      <h3>Apa itu strategi konsentrasi di market crypto?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/31.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1206824393171406908/AKADEMI_CRYPTO_1.png?ex=683fd04d&is=683e7ecd&hm=919cc8db28af7effe85d284c12952ce1006b0617defb6d24b0886ec229006847&" alt="Apa itu strategi konsentrasi di market crypto?">
+      <h3>Bagaimana alokasi modal yang optimal?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/32.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1207181747918348338/AKADEMI_CRYPTO_2.png?ex=683fcb9d&is=683e7a1d&hm=b63f7cf38036bf1c0d01dce2892fc344abb8c25326bd0d76ffb012aa715cf4c1&" alt="Apa saja fungsi dari CEX native token?">
+      <h3>Apa saja fungsi dari CEX native token?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/33.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1208562910687928430/AKADEMI_CRYPTO_3.png?ex=683f8beb&is=683e3a6b&hm=4665f8401fa5e3f65bfcc0ff59d991923e37d353926f5b9c3a72bdcb21a8eb12&" alt="Apa itu hedging?">
+      <h3>Apa itu hedging?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/34.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1208956295713919026/TradingView_Screenshot_1708307625348.jpg?ex=683fa8ca&is=683e574a&hm=30397049644a324a1f6c1ea8e0d7a57b9121d95819f567afe4080b65d5b0e609&" alt="Apa itu beginners luck dalam trading?">
+      <h3>Apa itu beginners luck dalam trading?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/35.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1210088475982962699/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_www.akademicrypto.com_20240222_115218_0000.png?ex=683fd2b7&is=683e8137&hm=c8e359984a75e99cf46a49ca09955b5466624caa06bcce0fcb78417ab9720b67&" alt="Apa itu average up dan average down?">
+      <h3>Apa itu average up dan average down?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/36.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1210523570757836830/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_www.akademicrypto.com_20240223_163851_0000.png?ex=6840166d&is=683ec4ed&hm=5a7355afa24ac78e7c595cf74d1f8652c9c71a4379d562267f28765def699885&" alt="Bagaimana solusi menghadapi market yang choppy?">
+      <h3>Bagaimana solusi menghadapi market yang choppy?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/37.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1211893999929921556/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_www.akademicrypto.com_3.png?ex=683fccbd&is=683e7b3d&hm=b933c391ee940ec41385dddb9b3d4586b39723ed16e469c15d252ac64a3c5d24&" alt="Apa itu Defi Summer?">
+      <h3>Apa itu Defi Summer?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/38.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1212271871421186098/Screenshot_2024-02-28_at_12.27.29.png?ex=683fdb29&is=683e89a9&hm=0c1f3bda60701ae1fd588d26497ab6ffc5eac5237a702543b995f9dcf7f22723&" alt="Pattern favorit di Altseason">
+      <h3>Pattern favorit di Altseason</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/39.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1213389486239518720/20240302_142609_0000.png?ex=684dcf45&is=684c7dc5&hm=ce19d8064051a6845ff517591873492467698459b94e5cbdf3e4b654f44a4592&" alt="Kenapa melihat PNL dengan rutin justru berdampak negatif pada performa trading atau investasi?">
+      <h3>Kenapa melihat PNL dengan rutin justru berdampak negatif pada performa trading atau investasi?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/40.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1213688358035923004/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_www.akademicrypto.com_20240303_101642_0000.png?ex=684e3cdd&is=684ceb5d&hm=ccfb193d67694052090a0c638e2eacf7a356825e229a1c1aab409e34f0f9b31b&" alt="Bagaimana cara screening Altcoins?">
+      <h3>Bagaimana cara screening Altcoins?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/41.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1214110816518012969/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_www.akademicrypto.com.png?ex=684dcc0f&is=684c7a8f&hm=8242323be0cd7afc465e313bb92baf45a06d6a1a8b4dc74d42ab386a0efb3501&" alt="Bagaimana cara mengatasi FOMO?">
+      <h3>Bagaimana cara mengatasi FOMO?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/42.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1214427141614084096/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_www.akademicrypto.com_20240305_111209_0000.png?ex=684e49e9&is=684cf869&hm=623f6a7bbec5d8536f551a38f7e08eb893caefb2b8b5e94cd4e090104f6ddd10&" alt="Bang saya ke sideline dan sama sekali gak beli Bitcoin selama ini, apa yang harus saya lakukan?">
+      <h3>Bang saya ke sideline dan sama sekali gak beli Bitcoin selama ini, apa yang harus saya lakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/43.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1214792500389093426/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_CRYPTO_SWITCHING_TIMING.png?ex=684e4cad&is=684cfb2d&hm=c225364b35414ab31d279aaa0c6133fb7005ca3e3a20e2195dd1b3ec81832f30&" alt="Apa itu strategi tebar jala">
+      <h3>Apa itu strategi tebar jala?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/44.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1215159332707246130/1.png?ex=684e50d1&is=684cff51&hm=11cf8a612e71f300d9a25923e56b225277a4fcccc88c25fe2a49eb6c5a94e90d&" alt="Bagaimana cara mengetahui bahwa suatu narrative akan berakhir?">
+      <h3>Bagaimana cara mengetahui bahwa suatu narrative akan berakhir?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/45.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1215862559781945476/1_30.png?ex=684e3cbf&is=684ceb3f&hm=7a377a1d72ee72513bfdc265d395d6c171abd2ca69b3a82d09c5790f1649b1ec&" alt="Kenapa holder cenderung menang di bull market?">
+      <h3>Kenapa holder cenderung menang di bull market?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/46.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1216216459445796974/1_20240310_094225_0000.png?ex=684e34d8&is=684ce358&hm=9c80ae1bcd59f6bad59a70d024807b6e43c5fde6468215bd110ec0403d005869&" alt="Tips scalping Altcoins like a pro:">
+      <h3>Tips scalping Altcoins like a pro:</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/47.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1216944363662217356/1_1.png?ex=684e37c2&is=684ce642&hm=67093bcfb89f53c045ae1b47dae3499302aac45eeab462d3a6ebc0e8f8d3977d&" alt="Bingung karena kebanyakan naratif yang lagi jalan? Ini solusinya!">
+      <h3>Bingung karena kebanyakan naratif yang lagi jalan? Ini solusinya!</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/48.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1217328216386043944/1_2.png?ex=684e4bbf&is=684cfa3f&hm=470e48687eea883de27f879cd39aa7b156c2ee5076cf7fc33a09911f0dc3e138&" alt="Bagaimana mengatasi rasa greedy ketika trading crypto?">
+      <h3>Bagaimana mengatasi rasa greedy ketika trading crypto?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/49.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1217693823711580180/1_3.png?ex=684e4ebf&is=684cfd3f&hm=6309f3fb26f4f72c2b3b3155b1a23d42d75a369fcf41b5d1d24f8f905eaaa2e3&" alt="Udah dijual tapi malah terbang lebih tinggi lagi?">
+      <h3>Udah dijual tapi malah terbang lebih tinggi lagi?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/50.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1218810574947745903/1_31.png?ex=684fbbcd&is=684e6a4d&hm=269bb11ce96813d3d3bb3278b572804a2963de9941c1100623c6969ff2f8743c&" alt="Market merah, apa yang harus dilakukan?">
+      <h3>Market merah, apa yang harus dilakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/51.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1219498985182593086/1_5.png?ex=684f99ef&is=684e486f&hm=c23bd06b31cd911cc20cb9941b59c9ad60f7fea040c8cff99807f8dfbb0aeca3&" alt="Porto investasi saya merah, apa yang harus saya lakukan?">
+      <h3>Porto investasi saya merah, apa yang harus saya lakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/52.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1220259005327474698/1_32.png?ex=684fbac2&is=684e6942&hm=f8b0db19647f256e8fd71be18f487dbc3dcbb36dc3dd1449d5e8f4a74c13161e&" alt="Porto lagi hijau, gimana strategi take profits-nya?">
+      <h3>Porto lagi hijau, gimana strategi take profits-nya?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/54.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1220959160347262986/1_33.png?ex=684fa3d4&is=684e5254&hm=4eccbb431fb8cb207256bf80ac1f455f4d8e938bdd7f617c156f2da01d6beb3a&" alt="Fakta Tentang Trading Memecoins">
+      <h3>Fakta Tentang Trading Memecoins</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/55.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1221301495857676358/1_34.png?ex=684f9127&is=684e3fa7&hm=6d117900ae9b646044ed6307c56b1e9ff63774b19ad2f86c586b463377c8361e&" alt="Cara efektif melakukan narrative trading">
+      <h3>Cara efektif melakukan "narrative trading"</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/56.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1221653172926287962/1_6.png?ex=684f872d&is=684e35ad&hm=5e2189d52aa101106722d668c33478f4e93306628f9d6e476429a477baa0b6c3&" alt="Cara mengatur keuangan ketika bull market.">
+      <h3>Cara mengatur keuangan ketika bull market.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/57.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1222401746412765234/1_7.png?ex=684f9d57&is=684e4bd7&hm=d3b2971484409a2f76ec9492823d7dc59cd22c2a5ec4b7b316b672600b864397&" alt="Tips mencari koin yang akan naik dua kali lipat (100% gains)">
+      <h3>Tips mencari koin yang akan naik dua kali lipat (100% gains)</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/58.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1223050500468113508/1_20240329_060113_0000.png?ex=684f568a&is=684e050a&hm=f156b1304283fe76e191f24745eac2f8e5d2b39a2eacd4c9b4ca75bf8f2b50b0&" alt="Bagaimana cara meningkatkan skill trading?">
+      <h3>Bagaimana cara meningkatkan skill trading?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/59.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1223821316541513759/1_35.png?ex=684f816b&is=684e2feb&hm=8454c68b219a94b0f672e831f2d1004d8400ad708b9ef6eab16b15e590f54dfb&" alt="Tips menghadapi off trading day">
+      <h3>Tips menghadapi "off trading day"</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/60.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1224181181247918201/1_36.png?ex=685027d1&is=684ed651&hm=7ca8d33a1d75042e4cfb4f2d884d98bf694a8a44b1115df2a62b6bb3dda30e5d&" alt="Bagaimana cara melakukan market timing di crypto?">
+      <h3>Bagaimana cara melakukan market timing di crypto?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/61.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1224553089499922432/1_37.png?ex=684f87ef&is=684e366f&hm=9ddd39c1a06206b29b974d2830a226e58ebd829414580b9197c57689f1c2eed6&" alt="Bagaimana cara membuat trading plan?">
+      <h3>Bagaimana cara membuat trading plan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/62.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1225632366676934788/1_9.png?ex=68502957&is=684ed7d7&hm=e6f4c43b9640d007017667af47c2a41f873e252bcf767f9d27c442aa17754cea&" alt="Bagaimana cara scalping seperti robot?">
+      <h3>Bagaimana cara scalping seperti "robot"?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/63.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1226789959441322057/1_20240408_135012_0000.png?ex=684fc22e&is=684e70ae&hm=d1838def28fe923298ffd500c492c33b6a6b0cab65d82162383eeceeb774d2e1&" alt="Bagaimana cara menghalau jebakan para smart money secara teknikal?">
+      <h3>Bagaimana cara menghalau jebakan para smart money secara teknikal?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/64.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1227088722785341480/1_39.png?ex=68502fad&is=684ede2d&hm=bb5d15b5d7c6d56b63d6ac2b7add717ba570c62979172681eaab20f2dd323320&" alt="Bagaimana cara menghindari fakeout dari Altcoins?">
+      <h3>Bagaimana cara menghindari "fakeout" dari Altcoins?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/65.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1228164471369760768/20240412_085539_0000.png?ex=6850250c&is=684ed38c&hm=e2b193888247661500336fcd52ab23d7c851bfb006198cbab21c35e8a6116f41&" alt="Bagaimana cara melihat potensi market cycle top?">
+      <h3>Bagaimana cara melihat potensi market cycle top?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/66.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1228978887690686474/1_43.png?ex=684fcfc8&is=684e7e48&hm=319046c2633bb82f0698ba00b131ee4041691dd6daafa95c7c932d56514aa8f8&" alt="Apa yang harus dilakukan ketika ada berita FUD di market?">
+      <h3>Apa yang harus dilakukan ketika ada berita FUD di market?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/67.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1229260540644294697/1_10.png?ex=68502d57&is=684edbd7&hm=d9f5d40a822568a339156a22df58ca3145f4cde564d88c5caf7c585b37e0667c&" alt="Posisi saya nyangkut, beli beberapa aset mendadak ada perang, apa yang harus dilakukan?">
+      <h3>Posisi saya nyangkut, beli beberapa aset mendadak ada perang, apa yang harus dilakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/68.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1229706729022029854/1_45.png?ex=684fd2a3&is=684e8123&hm=7b7730a48e5bf9882d647f1e07a92b926b4059d51efd1bf7ed43f732647c0663&" alt="Kebiasaan buruk ini bikin trading kalian berantakan">
+      <h3>Kebiasaan buruk ini bikin trading kalian berantakan</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/69.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1231820242716590090/1_32.png?ex=684f99ff&is=684e487f&hm=148cbe77e8fc6f71bc93f20c189cd2b5fea4f23f9781b483b8ed88ecd82d73e2&" alt="Apa yang terjadi ketika the real Altseason hadir di market?">
+      <h3>Apa yang terjadi ketika "the real Altseason" hadir di market?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/70.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1232903912416083998/1_51.png?ex=6850e83e&is=684f96be&hm=f86bd678ed1024edc6d88450b2fc40c62cfda90d4640e9abe4e82ace65635ff7&" alt="Fase kejenuhan di market setelah halving">
+      <h3>Fase kejenuhan di market setelah "halving"</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/71.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1232903912416083998/1_51.png?ex=6850e83e&is=684f96be&hm=f86bd678ed1024edc6d88450b2fc40c62cfda90d4640e9abe4e82ace65635ff7&" alt="Fase kejenuhan di market setelah halving">
+      <h3>Fase kejenuhan di market setelah "halving"</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/71.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1233279248131952650/1_55.png?ex=6850f44d&is=684fa2cd&hm=d32e6a23d9384b451498f4b20cffb1dbfce9dfd5fe0221cc887476cdad8ea9f9&" alt="Bagaimana cara menjaga aset crypto yang kita miliki?">
+      <h3>Bagaimana cara menjaga aset crypto yang kita miliki?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/72.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1233705953619087360/20240427_154829_0000.png?ex=68513034&is=684fdeb4&hm=f3dcf6923ce8ea36018375448090a1f8200b48ffbbbaaa6d53d0cee17e4ce712&" alt="Standar buat trading crypto anti boncos.">
+      <h3>Standar buat trading crypto anti boncos.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/73.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1234337203640078367/1_56.png?ex=6850d91a&is=684f879a&hm=1585df23ff80b76f381c1b067c7c9d2dd5e05c5c3cad1fc1392052980d4c1bed&" alt="Apa yang harus dilakukan ketika market dalam fase ketidak pastian?">
+      <h3>Apa yang harus dilakukan ketika market dalam fase "ketidak pastian"?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/74.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1234717124593979423/1_57.png?ex=6850e96e&is=684f97ee&hm=eb260c76269ecdc79eb05ad503079c5ae7b9a63270e561f5adb4e9cdb7bb2684&" alt="Mitos-mitos di crypto yang ternyata salah kaprah.">
+      <h3>Mitos-mitos di crypto yang ternyata salah kaprah.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/75.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1235437196278894704/1_58.png?ex=6850e50c&is=684f938c&hm=3ee9604ace0e581a5e881ae446d793d7da893f2b2a63a0e3293ae0a2a73ccd3a&" alt="Bagaimana cara mengidentifikasi bottom di market?">
+      <h3>Bagaimana cara mengidentifikasi "bottom" di market?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/76.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1236700111015383120/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_AVS_2.png?ex=6850dffb&is=684f8e7b&hm=1d71abdf60fc0f13b23ec8f0cd3b03a432f0f330578880a4c8a7c20fbc72e1cd&" alt="Berikut ciri-ciri terkena trading addiction di market crypto">
+      <h3>Berikut ciri-ciri terkena "trading addiction" di market crypto</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/77.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1237252439422406686/1_59.png?ex=6850e820&is=684f96a0&hm=f05c3197056e171caebf79ccfda60c725b613022a1efd2aeb521a900e104923d&" alt="Altcoins trading dilemma.">
+      <h3>Altcoins "trading" dilemma.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/78.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1238099882955243672/1_66.png?ex=68515a5e&is=685008de&hm=2ca78b9776bbf6af5aff9db22d179f9dff10536a4d3b96d3e37d0e8c192d5f68&" alt="Risk & money management khusus market downtrend.">
+      <h3>Risk & money management khusus market downtrend.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/79.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1238320865272139898/1_67.png?ex=6850d6ad&is=684f852d&hm=6d05c4781652080e18766ccbaef09ca269d20c90f944ac3792a952e8e81b4786&" alt="Cara membangun portfolio crypto yang balance">
+      <h3>Cara membangun portfolio crypto yang "balance"</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/80.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1238709202176839820/1_20240511_111233_0000.png?ex=6850eed7&is=684f9d57&hm=6edda52de9ac5dc0838061c2f260ef17459ea9ed9b8f3f9adcdbf648e0ea9fb4&" alt="Terdapat beberapa bias tertentu">
+      <h3>Terdapat beberapa "bias tertentu"</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/81.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1239803507595546634/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_AVS_3.png?ex=6850f57e&is=684fa3fe&hm=f490904c0fff3620036fd7645ffe3311b4708254327ca36eece66fd5473e2642&" alt="Strategi untuk antisipasi Altcoin Season.">
+      <h3>Strategi untuk antisipasi Altcoin Season.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/82.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1240174958521618482/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_AVS_4.png?ex=6850fdef&is=684fac6f&hm=80a148e638e9cb7e59bb7af02c943f3d9ba6be9d0b0f2d45055bb0df623253b5&" alt="Cara menghadapi cycle yang panjang">
+      <h3>Cara menghadapi cycle yang "panjang"</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/83.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1241208096089571398/Copy_of_Copy_of_Copy_of_AVS_5.png?ex=6851745e&is=685022de&hm=8deb7898622460cfb48b88b1e99075410002521b95d0795e1a1c447c9fce12a6&" alt="Apa pentingnya business model dalam altcoins?">
+      <h3>Apa pentingnya business model dalam altcoins?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/84.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1243366455584493598/Copy_of_Copy_of_Copy_of_AVS_9.png?ex=6851657f&is=685013ff&hm=21db97917b8ae752ff77fa662b7e2cc9426a1ecc74a1ea3c8c4ea7548c2d2e6c&" alt="Tips trading spot anti galau.?">
+      <h3>Tips trading spot anti galau.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/85.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1244253154556645417/Copy_of_Copy_of_Copy_of_AVS_13.png?ex=6851538d&is=6850020d&hm=0f1366bce92ba21de020de134326c97d09a572fdb5264b669066815706a81280&" alt="Saya all in, sekarang capital saya nyangkut di satu koin. Apa yang harus saya lakukan?">
+      <h3>Saya all in, sekarang capital saya nyangkut di satu koin. Apa yang harus saya lakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/86.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1244887228744728576/Copy_of_Copy_of_Copy_of_AVS_15.png?ex=6850ff14&is=684fad94&hm=c7e65cacd70e897e397515de4264a4ccd55d75fdb7c59ec096b45c25693532d5&" alt="Ethereum udah pumping, sektor apa dalam ekosistem Ethereum yang menarik untuk di beli?">
+      <h3>Ethereum udah pumping, sektor apa dalam ekosistem Ethereum yang menarik untuk di beli?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/87.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1245548474934759465/Copy_of_Copy_of_Copy_of_AVS_16.png?ex=68516ca9&is=68501b29&hm=115860adab3dbdecd4d1383eb0a6739e36bdb051595f8ef4f5218063cf453510&" alt="Mau beli altcoins, dimulai dari mana?">
+      <h3>Mau beli altcoins, dimulai dari mana?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/88.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1246779614861332531/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_AVS_4.png?ex=68514a00&is=684ff880&hm=6d946bf3e9578877aaa79abc5b6648badda1f55891aa4cc30cd2f32b4fe588cf&" alt="Cara mengetahui money flow pada naratif altcoins selanjutnya.">
+      <h3>Cara mengetahui money flow pada naratif altcoins selanjutnya.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/89.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1247360827011498054/Copy_of_Copy_of_Copy_of_AVS_21.png?ex=68516d0c&is=68501b8c&hm=64822352bd27cbc85180e5261a7c4a99c98b31563bd8f295fa0ed4075eb527e3&" alt="Apa itu Total Value Locked (TVL) dan Apa yang Bisa Kita Ketahui dari TVL?">
+      <h3>Apa itu Total Value Locked (TVL) dan Apa yang Bisa Kita Ketahui dari TVL?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/90.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1247804670949199945/Copy_of_Copy_of_Copy_of_AVS_22.png?ex=685261a8&is=68511028&hm=42c7ec2c3b19368fa87c7f9c4612bb1474af8d85567f157fa224a1e173712e4c&" alt="Apa itu Circulating Supply?">
+      <h3>Apa itu Circulating Supply? Apa maknanya untuk melihat tokenomics Altcoins?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/91.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1248887406694764554/Copy_of_Copy_of_Copy_of_AVS_23.png?ex=68525d88&is=68510c08&hm=b3094f08ca3e2b6f9e34145e3045f7632963a8668fd6fa493a2f3c734d5e9121&" alt="Apa itu analisa on-chain">
+      <h3>Apa itu analisa on-chain dan indikator on-chain apa saja yang tepat untuk digunakan pemula?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/92.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1249184877216268440/Copy_of_Copy_of_Copy_of_AVS_24.png?ex=6852c9d3&is=68517853&hm=22e77b429ab994bb2dd3797b87e194d07359d4d3c94c4d81283791c41f451c85&" alt="Apa itu quant trading">
+      <h3>Apa itu quant trading dan apa keuntunganya diterapkan pada market cryptocurrency?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/93.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1249945016864866336/Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_Copy_of_AVS_1.png?ex=6852eac2&is=68519942&hm=3e634885203f9f294a9899f55c95d54eeb75b6132aff980f312cd1dbccdf26a9&" alt="Saya ingin menjadi investor dan trader crypto dalam saat yang bersamaan, apakah bisa?">
+      <h3>Saya ingin menjadi investor dan trader crypto dalam saat yang bersamaan, apakah bisa?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/94.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1250389505698168922/Copy_of_Copy_of_Copy_of_AVS_20240612_175042_0000.png?ex=6853dff9&is=68528e79&hm=c27dca27cc1d391e837a261c43319d14bacd7b4c02b42c3b5686fdebe184c39c&" alt="New listing trading strategy">
+      <h3>New listing trading strategy</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/95.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1252109504292847687/Copy_of_Copy_of_Copy_of_AVS_20240617_104745_0000.png?ex=68538a58&is=685238d8&hm=b98bd0e301feb6dc45cee0e83de3764fa50496d6cf37d61230e857aff10d2f8d&" alt="How to master entry in Scalping">
+      <h3>How to master entry in Scalping</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/96.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1252481050534477834/Copy_of_Copy_of_Copy_of_AVS_31.png?ex=685392e0&is=68524160&hm=dac724c0a6be015ac6784d775473fbbcf6477c3c7245dc7f8e70001c66cef6bd&" alt="Advanced trading/investing rules you need to follow and understand.">
+      <h3>Advanced trading/investing rules you need to follow and understand.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/97.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1252923773787574283/Copy_of_Copy_of_Copy_of_AVS_32.png?ex=6853ddb1&is=68528c31&hm=322847897a6cd3b21343298aa52441c597bc40a59268b8c96affe10e029b61a1&" alt="Cara memperoleh keuntungan ketika market anomaly.">
+      <h3>Cara memperoleh keuntungan ketika market anomaly.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/98.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1253939964140589140/Copy_of_Copy_of_Copy_of_AVS_33.png?ex=68539b98&is=68524a18&hm=cd2c34c7ec4f4584ac7c309e3767b9e271195fe518712161207b27b6cc0e04ac&" alt="Market dalam keadaan yang super choppy (lagi) apa yang harus dilakukan part 2.">
+      <h3>Market dalam keadaan yang super choppy (lagi) apa yang harus dilakukan part 2.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/99.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1255076261114679356/Copy_of_Copy_of_Copy_of_AVS_35.png?ex=6853c95a&is=685277da&hm=ff3f624da2442117d5ff18cfc49c733ad9ff05a9689dd6a09bb4ec84850e9256&" alt="Bias yang kurang tepat untuk dilakukan ketika sedang membuka posisi trade.">
+      <h3>Bias yang kurang tepat untuk dilakukan ketika sedang membuka posisi trade.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/100.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1258775748114780190/Copy_of_Copy_of_Copy_of_Copy_of_AVS_6.png?ex=68536705&is=68521585&hm=d8a90f601925184a69e520b61ab0c03ddf04d0f8ba0e20a8665721a7c63f0326&" alt="Market lagi turun secara signifikan, apa yang harus dilakukan?">
+      <h3>Market lagi turun secara signifikan, apa yang harus dilakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/101.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1259364372979912847/Copy_of_Copy_of_AVS_7.png?ex=685390f8&is=68523f78&hm=f2b0ed0be7ac287954363f4c51d93df60e41fdab841616b7216adbc564c64aba&" alt="Berbagai fakta tentang market yang harus kalian ketahui:">
+      <h3>Berbagai fakta tentang market yang harus kalian ketahui</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/102.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1260865963826610217/Copy_of_Copy_of_Copy_of_Copy_of_AVS_7.png?ex=6853c16f&is=68526fef&hm=c650b2052f4bd49c9329e50f053b144b139bdba3f946a4f0f0b990daa3fcbafc&" alt="Market dalam keadaan anomali, apa yang harus dilakukan?">
+      <h3>Market dalam keadaan anomali, apa yang harus dilakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/103.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1262599639308173413/Copy_of_Copy_of_Copy_of_Copy_of_AVS_8.png?ex=6853788b&is=6852270b&hm=28785f812d58145dfef9910b983eccba73e286ad271302023ecd6ce218b575e9&" alt="Ketika market sudah kembali rally dan recover aset apa yang dibeli?">
+      <h3>Ketika market sudah kembali "rally" dan "recover" aset apa yang dibeli?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/104.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1264039420055654481/Copy_of_Copy_of_Copy_of_Copy_of_AVS_9.png?ex=68536f72&is=68521df2&hm=52d3c0e72d8cf89060340f598b09ed5b177606bf3ee20573e7bd3a56da85e49c&" alt="Tips psikologi yang nyaman ketika bull run.">
+      <h3>Tips psikologi yang "nyaman" ketika bull run.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/105.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1264794701480071289/Copy_of_Copy_of_Copy_of_Copy_of_AVS_10.png?ex=68538bdb&is=68523a5b&hm=37d1032595979e5c690265ef9712ccaf98b241fe67ef45b06267b5637b60b7f4&" alt="Tips untuk tidak FOMO ketika market kembali naik">
+      <h3>Tips untuk tidak "FOMO" ketika market kembali naik</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/106.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1268747344216719360/Copy_of_Copy_of_Copy_of_Copy_of_AVS_14.png?ex=6854154b&is=6852c3cb&hm=b014d3b7590f5cf949a3c646540c68450797d16ab96fd27721a20434dd50de5d&" alt="Apa yang harus dilakukan ketika market dalam keadaan low liquidity season?">
+      <h3>Apa yang harus dilakukan ketika market dalam keadaan low liquidity season?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/107.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1272373036368007250/Copy_of_Copy_of_Copy_of_Copy_of_AVS_37.png?ex=685416fb&is=6852c57b&hm=8d13ac305e031c5397d487830690f9c05a77c3689e832c725c26d690fa1ce5f8&" alt="Apabila terjadi dip lagi di market, apa yang harus dibeli dan bagaimana?">
+      <h3>Apabila terjadi "dip" lagi di market, apa yang harus dibeli dan bagaimana?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/108.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="menengah">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1280099237618647042/Copy_of_Copy_of_Copy_of_Copy_of_AVS_81.png?ex=6853da51&is=685288d1&hm=1ccfd55d348c21c7da799f53d0f869a09a1e3b3945ea955e7470284dce5756b6&" alt="Bagaimana cara bertahan di market yang boring?">
+      <h3>Bagaimana cara bertahan di market yang boring?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/109.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1281100331148902400/Copy_of_Copy_of_Copy_of_Copy_of_AVS_84.png?ex=68538a28&is=685238a8&hm=fba6dce55d7313bd70eb4c90fae7a83f789582c72c2acbd942e9078b3e913ea8&" alt="Beberapa bias atau cacat berfikir yang ada di market.">
+      <h3>Beberapa bias atau "cacat berfikir" yang ada di market.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/110.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1281427708554772561/Copy_of_Copy_of_Copy_of_Copy_of_AVS_85.png?ex=6854124d&is=6852c0cd&hm=935c71aef4bab2ec96e052b660d6bc27d2f75de479d5fda746f66f38d6e417d1&" alt="Kenapa harus berfokus pada kualitas informasi bukan kuantitas informasi?">
+      <h3>Kenapa harus berfokus pada kualitas informasi bukan kuantitas informasi?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/111.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1282213917942087712/Copy_of_Copy_of_Copy_of_Copy_of_AVS_87.png?ex=6853a2c4&is=68525144&hm=2480fcac351ab94e60fa4e6b6d684e7c56070214abfe6a5eede548032ade3ea6&" alt="Jenis Altcoins yang Menarik Dibeli Saat Koreksi.">
+      <h3>Kenapa harus berfokus pada kualitas informasi bukan kuantitas informasi?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/112.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1283278480141975602/Copy_of_Copy_of_Copy_of_Copy_of_AVS_88.png?ex=68538db7&is=68523c37&hm=6db6a10e4a0c7f634bb9bfb0400ed6e1b091d5c081889e9fcf027c17e0dbf8ae&" alt="Cara Menjadi Seorang Scalper Handal.">
+      <h3>Cara Menjadi Seorang Scalper Handal.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/113.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="advance">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1284385123772403785/Copy_of_Copy_of_Copy_of_Copy_of_AVS_89.png?ex=68539fdc&is=68524e5c&hm=dec07d7c2223bf41bc8397ea431704412032590d2249e70e73002429f0b02fe1&" alt="Tips Trading Ketika Weekend.">
+      <h3>Tips Trading Ketika Weekend.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/114.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1281799782167347262/Copy_of_Copy_of_Copy_of_Copy_of_AVS_86.png?ex=68537292&is=68522112&hm=34e1e484a411310bfa0fce14cde238332f420d66fd5ff71a108aa0c9962f4e1e&" alt="Tips Bertahan di Bulan September.">
+      <h3>Tips Bertahan di Bulan September.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/115.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1292682132908675156/Copy_of_Copy_of_Copy_of_Copy_of_AVS_91.png?ex=68537c8d&is=68522b0d&hm=8009fddb5c797d0bf9d95789de4a971644ee511a0f2f4d30d1e31e8403828915&" alt="Apa yang harus dilakukan pada saat Oktober?">
+      <h3>Apa yang harus dilakukan pada saat Oktober?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/116.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1293772824363798630/Copy_of_Copy_of_Copy_of_Copy_of_AVS_92.png?ex=68537fd6&is=68522e56&hm=1ae879d0832509d7d2c241acc49f006ea6c8dd4105372187968ddaa300b61563&" alt="Bagaimana cara membangun edge di market crypto?">
+      <h3>Bagaimana cara membangun "edge" di market crypto?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/117.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1314430395323781200/Copy_of_Copy_of_Copy_of_Copy_of_AVS_94.png?ex=68538133&is=68522fb3&hm=23c766f4ff2f23aa84bc12bb0a2d0215b20a7c932e40783826c0ee65d4c6c335&" alt="Cara Mengatasi Fear of Missing Out (FOMO).">
+      <h3>Cara Mengatasi Fear of Missing Out (FOMO).</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/118.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1314872659166761040/Copy_of_Copy_of_Copy_of_Copy_of_AVS_20241207_152516_0000.png?ex=6853cb97&is=68527a17&hm=a5adcf5cd2a435a07c07f0e12fc115910253b88adb639dd4befe09c0b6811c80&" alt="Tips Take Profits Ketika Bull Market.">
+      <h3>Tips Take Profits Ketika Bull Market.</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/119.html" class="btn">Baca Selengkapnya</a>
+    </div>
+
+    <div class="edu-card" data-level="pemula">
+      <img src="https://cdn.discordapp.com/attachments/1195910188197228554/1315936812182802462/Copy_of_Copy_of_Copy_of_Copy_of_AVS_96.png?ex=6853b628&is=685264a8&hm=56b5fc5f6cc4e0daed038e5fad54c8d62c9933aab4cb006eb8925918ab489864&" alt="Market Merah Merona, Apa yang Harus Dilakukan?.">
+      <h3>Market Merah Merona, Apa yang Harus Dilakukan?</h3>
+      <p>Pelajari teknologi yang mendasari seluruh cryptocurrency.</p>
+      <a href="detail/120.html" class="btn">Baca Selengkapnya</a>
     </div>
 
   </main>
+
+<script>
+  function filterByLevel(level) {
+    const cards = document.querySelectorAll(".edu-card");
+    cards.forEach(card => {
+      const cardLevel = card.getAttribute("data-level") || "pemula";
+      card.style.display = (cardLevel === level) ? "block" : "none";
+    });
+  }
+
+  function showAllLevels() {
+    const cards = document.querySelectorAll(".edu-card");
+    cards.forEach(card => {
+      card.style.display = "block";
+    });
+  }
+</script>
 
 </body>
 </html>

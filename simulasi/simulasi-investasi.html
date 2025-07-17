@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulasi Manajemen Portofolio</title>
+  <link rel="stylesheet" href="../styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0f23;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #12152e;
+      border-bottom: 2px solid #f39c12;
+      text-align: center;
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      color: #f39c12;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    .simulasi-form {
+      background-color: #1b1e38;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .simulasi-form label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input[type=number] {
+      padding: 10px;
+      border-radius: 6px;
+      width: 100%;
+      max-width: 100%;
+      border: none;
+      font-size: 15px;
+    }
+
+    .input-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+    }
+
+    .btn {
+      background-color: #f39c12;
+      color: #000;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 15px;
+      cursor: pointer;
+      display: inline-block;
+      border: none;
+      transition: background 0.3s ease, transform 0.2s;
+    }
+
+    .btn:hover {
+      background-color: #d48806;
+      transform: scale(1.03);
+    }
+
+    #portfolio-result {
+      margin-top: 30px;
+      background: #1b1e38;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    canvas {
+      margin: 20px auto;
+      display: block;
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    a {
+      color: #00aced;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 12px;
+      background-color: #00aced;
+      color: #fff;
+    }
+
+    a.btn:hover {
+      background-color: #0090c1;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>📊 Simulasi Manajemen Investasi Crypto</h1>
+  </header>
+
+  <div class="container">
+    <section class="simulasi-form">
+      <form id="portfolio-form">
+        <div class="form-group">
+          <label for="modal">Modal Awal (Rp):</label>
+          <input type="number" id="modal" name="modal" placeholder="Contoh: 10000000" required />
+        </div>
+
+        <div class="input-grid">
+          <div class="form-group">
+            <label for="btc">Alokasi BTC (%)</label>
+            <input type="number" id="btc" name="btc" required />
+          </div>
+          <div class="form-group">
+            <label for="eth">Alokasi ETH (%)</label>
+            <input type="number" id="eth" name="eth" required />
+          </div>
+          <div class="form-group">
+            <label for="alt">Alokasi Altcoins (%)</label>
+            <input type="number" id="alt" name="alt" required />
+          </div>
+        </div>
+
+        <button type="submit" class="btn">💸 Simulasikan</button>
+      </form>
+    </section>
+
+    <div id="portfolio-result"></div>
+    <canvas id="portfolio-chart" width="400" height="300"></canvas>
+  </div>
+
+<script>
+const form = document.getElementById("portfolio-form");
+const result = document.getElementById("portfolio-result");
+const ctx = document.getElementById("portfolio-chart").getContext("2d");
+let chart;
+
+// Scoring CBA
+const CBA_SCORE = {
+  btc: { cost: 3, benefit: 7 },
+  eth: { cost: 5, benefit: 8 },
+  alt: { cost: 8, benefit: 9 }
+};
+
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  const btc = parseInt(this.btc.value);
+  const eth = parseInt(this.eth.value);
+  const alt = parseInt(this.alt.value);
+  const modal = parseFloat(this.modal.value);
+  const total = btc + eth + alt;
+
+  if (total !== 100) {
+    result.innerHTML = `<p style="color:red;">❌ Total alokasi harus 100%. Saat ini ${total}%</p>`;
+    if (chart) chart.destroy();
+    return;
+  }
+
+  // CBA Logic
+  const cost = ((btc * CBA_SCORE.btc.cost) + (eth * CBA_SCORE.eth.cost) + (alt * CBA_SCORE.alt.cost)) / 100;
+  const benefit = ((btc * CBA_SCORE.btc.benefit) + (eth * CBA_SCORE.eth.benefit) + (alt * CBA_SCORE.alt.benefit)) / 100;
+  const net = benefit - cost;
+
+  let penilaian = "";
+  let rekomendasi = "";
+  let level = "";
+
+  if (net > 4.5) {
+    penilaian = "✅ Rekomendasi Baik! Potensi keuntungan lebih besar dari risiko.";
+    level = "menengah";
+  } else if (net >= 3 && net <= 4.5) {
+    penilaian = "🟡 Cukup stabil, namun tetap perhatikan manajemen risiko.";
+    level = "pemula";
+  } else {
+    penilaian = "⚠️ Portofolio terlalu berisiko! Evaluasi ulang alokasimu.";
+    level = "advance";
+  }
+
+  // Simpan level untuk rekomendasi edukasi
+  localStorage.setItem("riskProfile", level);
+
+  const btcNominal = modal * btc / 100;
+  const ethNominal = modal * eth / 100;
+  const altNominal = modal * alt / 100;
+
+  result.innerHTML = `
+    <h3>📋 Ringkasan Alokasi</h3>
+    <ul>
+      <li><strong>Modal Awal:</strong> Rp ${modal.toLocaleString()}</li>
+      <li><strong>BTC:</strong> ${btc}% → Rp ${btcNominal.toLocaleString()}</li>
+      <li><strong>ETH:</strong> ${eth}% → Rp ${ethNominal.toLocaleString()}</li>
+      <li><strong>Altcoins:</strong> ${alt}% → Rp ${altNominal.toLocaleString()}</li>
+    </ul>
+    <p><strong>Cost:</strong> ${cost.toFixed(2)} | <strong>Benefit:</strong> ${benefit.toFixed(2)} | <strong>Net Score:</strong> ${net.toFixed(2)}</p>
+    <p style="color:lime;">${penilaian}</p>
+    <a href="../Edukasi/hasil-rekomenadasi.html" class="btn">🎓 Lihat Rekomendasi Edukasi</a>
+  `;
+
+  if (chart) chart.destroy();
+  chart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['BTC', 'ETH', 'Altcoins'],
+      datasets: [{
+        data: [btc, eth, alt],
+        backgroundColor: ['#f39c12', '#3498db', '#8e44ad']
+      }]
+    },
+    options: {
+      plugins: {
+        legend: {
+          labels: {
+            color: "#fff",
+            font: { size: 14 }
+          }
+        }
+      }
+    }
+  });
+});
+</script>
+</body>
+</html>

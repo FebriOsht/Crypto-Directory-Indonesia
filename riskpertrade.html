@@ -1,0 +1,276 @@
+<!-- updated: complete JavaScript added -->
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Risk Per Trade Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: auto;
+      padding: 20px;
+      background: #f9f9f9;
+    }
+    h2 {
+      background: #2ecc71;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 12px 25px;
+      background: #2ecc71;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #27ae60;
+    }
+    .result, .simulasi {
+      background: #fff;
+      padding: 20px;
+      margin-top: 20px;
+      border-left: 5px solid #2ecc71;
+      border-radius: 5px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    canvas {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Risk Per Trade Calculator</h2>
+
+<div class="form-group">
+  <label>Nama Koin / Ticker</label>
+  <input type="text" id="coinName" placeholder="Contoh: BTC atau Bitcoin" onblur="getHargaMarket()">
+</div>
+
+<div class="form-group">
+  <label>Harga Pasar Saat Ini</label>
+  <input type="number" id="coinPrice" readonly>
+</div>
+
+<div class="form-group">
+  <label>Harga Entry</label>
+  <input type="number" id="entryPrice">
+</div>
+
+<div class="form-group">
+  <label>Mata Uang</label>
+  <select id="currency">
+    <option value="usdt">USDT ($)</option>
+    <option value="rp">Rupiah (Rp)</option>
+  </select>
+</div>
+
+<div class="form-group">
+  <label>Tipe Market</label>
+  <select id="marketType" onchange="toggleMarketOptions()">
+    <option value="spot">Spot</option>
+    <option value="future">Futures</option>
+  </select>
+</div>
+
+<div class="form-group" id="positionTypeRow">
+  <label>Posisi</label>
+  <select id="positionType">
+    <option value="long">Long</option>
+    <option value="short">Short</option>
+  </select>
+</div>
+
+<div class="form-group" id="leverageRow" style="display:none;">
+  <label>Leverage</label>
+  <input type="number" id="leverage" value="10">
+</div>
+
+<div class="form-group">
+  <label>Modal</label>
+  <input type="number" id="balance">
+</div>
+
+<div class="form-group">
+  <label>Risk per Trade (%)</label>
+  <input type="number" id="risk">
+</div>
+
+<div class="form-group">
+  <label>Stop Loss (Harga)</label>
+  <input type="number" id="stoploss">
+</div>
+
+<div class="form-group">
+  <label>Take Profit (Harga)</label>
+  <input type="number" id="takeprofit">
+</div>
+
+<button onclick="hitungRisk()">Hitung Risk</button>
+
+<div class="result" id="output" style="display:none;"></div>
+
+<div class="simulasi" id="simulasiBox" style="display:none;">
+  <strong>Simulasi Harga:</strong><br>
+  Entry: <span id="entryLabel"></span><br>
+  TP: <span id="tpLabel"></span><br>
+  SL: <span id="slLabel"></span><br>
+  Harga Market Live: <span id="livePriceLabel"></span>
+  <canvas id="chartSimulasi" width="700" height="300"></canvas>
+  <div id="riskRatioInfo" style="margin-top:10px; font-weight:bold;"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+function toggleMarketOptions() {
+  const type = document.getElementById('marketType').value;
+  document.getElementById('leverageRow').style.display = type === 'future' ? '' : 'none';
+  document.getElementById('positionTypeRow').style.display = type === 'future' ? '' : 'none';
+}
+
+async function getHargaMarket() {
+  const coinInput = document.getElementById("coinName").value.toLowerCase();
+  if (!coinInput) return;
+  const mappingRes = await fetch("https://api.coingecko.com/api/v3/coins/list");
+  const coins = await mappingRes.json();
+  const match = coins.find(c => c.id === coinInput || c.symbol === coinInput || c.name.toLowerCase() === coinInput);
+  if (!match) return alert("Koin tidak ditemukan.");
+  const priceRes = await fetch(`https://api.coingecko.com/api/v3/simple/price?ids=${match.id}&vs_currencies=usd`);
+  const priceData = await priceRes.json();
+  const price = priceData[match.id]?.usd;
+  if (price) {
+    document.getElementById("coinPrice").value = price;
+    document.getElementById("livePriceLabel").innerText = `$${price}`;
+  }
+}
+
+function hitungRisk() {
+  const coinPrice = parseFloat(document.getElementById('coinPrice').value);
+  const entryPrice = parseFloat(document.getElementById('entryPrice').value);
+  const stopLoss = parseFloat(document.getElementById('stoploss').value);
+  const takeProfit = parseFloat(document.getElementById('takeprofit').value);
+  const balance = parseFloat(document.getElementById('balance').value);
+  const risk = parseFloat(document.getElementById('risk').value);
+  const marketType = document.getElementById('marketType').value;
+  const leverage = marketType === 'future' ? parseFloat(document.getElementById('leverage').value) : 1;
+  const currency = document.getElementById('currency').value;
+  const symbol = currency === 'rp' ? 'Rp' : '$';
+
+  const slDiff = Math.abs(entryPrice - stopLoss);
+  const tpDiff = Math.abs(takeProfit - entryPrice);
+
+  let qty, saldoTP, saldoSL, percentTP, percentSL;
+  const riskAmount = balance * (risk / 100);
+
+  if (marketType === 'future') {
+    qty = (riskAmount * leverage) / slDiff;
+    saldoTP = balance + (qty * tpDiff);
+    saldoSL = balance - riskAmount;
+    percentTP = (tpDiff / entryPrice) * leverage * 100;
+    percentSL = (slDiff / entryPrice) * leverage * 100;
+  } else {
+    qty = balance / entryPrice;
+    saldoTP = qty * takeProfit;
+    saldoSL = qty * stopLoss;
+    percentTP = ((takeProfit - entryPrice) / entryPrice) * 100;
+    percentSL = ((entryPrice - stopLoss) / entryPrice) * 100;
+  }
+
+  const rewardRiskRatio = tpDiff / slDiff;
+  let warning = '';
+
+  if (rewardRiskRatio >= 2) {
+    warning = '✅ Low Risk, High Reward. Trade ideal.';
+  } else if (rewardRiskRatio >= 1) {
+    warning = '⚠️ Medium Risk. Pertimbangkan ulang posisi.';
+  } else {
+    warning = '❌ High Risk, Low Reward. Trade tidak disarankan.';
+  }
+
+  document.getElementById('output').style.display = 'block';
+  document.getElementById('output').innerHTML = `
+    <strong>Modal:</strong> ${symbol}${balance.toFixed(2)}<br>
+    <strong>Resiko:</strong> ${risk}% (${symbol}${riskAmount.toFixed(2)})<br>
+    <strong>Jumlah Koin:</strong> ${qty.toFixed(6)}<br>
+    <strong>Saldo Jika TP:</strong> ${symbol}${saldoTP.toFixed(2)} (+${percentTP.toFixed(2)}%)<br>
+    <strong>Saldo Jika SL:</strong> ${symbol}${saldoSL.toFixed(2)} (-${percentSL.toFixed(2)}%)<br>
+    <strong>Rasio Reward/Risk:</strong> ${tpDiff.toFixed(2)} / ${slDiff.toFixed(2)} = ${rewardRiskRatio.toFixed(2)} : 1<br>
+    <strong>Status:</strong> ${warning}
+  `;
+
+  document.getElementById('entryLabel').innerText = `$${entryPrice}`;
+  document.getElementById('tpLabel').innerText = `$${takeProfit}`;
+  document.getElementById('slLabel').innerText = `$${stopLoss}`;
+  document.getElementById('simulasiBox').style.display = 'block';
+
+  drawChart(entryPrice, takeProfit, stopLoss, coinPrice);
+}
+
+function drawChart(entry, tp, sl, live) {
+  const ctx = document.getElementById('chartSimulasi').getContext('2d');
+  if (window.simulasiChart) window.simulasiChart.destroy();
+  window.simulasiChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Stop Loss', 'Entry', 'Take Profit'],
+      datasets: [
+        {
+          label: 'Level Harga',
+          data: [sl, entry, tp],
+          backgroundColor: ['#e74c3c', '#3498db', '#2ecc71'],
+          borderColor: '#999',
+          borderWidth: 2,
+          fill: false,
+          tension: 0.4,
+          pointRadius: 6
+        },
+        {
+          label: 'Harga Market Saat Ini',
+          data: [live, live, live],
+          borderColor: '#f39c12',
+          borderDash: [5, 5],
+          fill: false,
+          pointRadius: 0
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'top' },
+        tooltip: { mode: 'index', intersect: false }
+      },
+      scales: {
+        y: {
+          beginAtZero: false,
+          title: { display: true, text: 'Harga' }
+        }
+      }
+    }
+  });
+}
+</script>
+
+</body>
+</html>

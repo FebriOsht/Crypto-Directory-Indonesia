@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Hasil Rekomendasi Edukasi</title>
+  <link rel="stylesheet" href="edukasi.css">
+</head>
+<body>
+
+  <header>
+    <h1>📘 Hasil Rekomendasi Belajar</h1>
+    <p id="profile-info" style="margin-top: -10px;">📚 Rekomendasi untuk Level: </p>
+      <a href="edukasi.html" class="btn-back">Lihat Semua Edukasi</a>
+  </header>
+
+<main class="edu-container" id="edu-list">
+  <p>⏳ Memuat rekomendasi edukasi...</p>
+</main>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const level = localStorage.getItem("riskProfile")?.toLowerCase() || "";
+  const info = document.getElementById("profile-info");
+  const container = document.getElementById("edu-list");
+
+  if (!level) {
+    info.textContent += "Belum ditentukan";
+    container.innerHTML = `<p style="color:red;">⚠️ Silakan isi simulasi terlebih dahulu.</p>`;
+    return;
+  }
+
+  info.textContent += level;
+
+  fetch("edukasi.html")
+    .then(res => res.text())
+    .then(html => {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(html, "text/html");
+      const cards = doc.querySelectorAll(`.edu-card[data-level="${level}"]`);
+
+      if (!cards.length) {
+        container.innerHTML = `<p style="color:red;">⚠️ Tidak ditemukan edukasi untuk level ini.</p>`;
+        return;
+      }
+
+      container.innerHTML = "";
+      cards.forEach(card => {
+        container.appendChild(card.cloneNode(true));
+      });
+    })
+    .catch(err => {
+      console.error("❌ Gagal mengambil data:", err);
+      container.innerHTML = `<p style="color:red;">❌ Gagal memuat edukasi dari sumber.</p>`;
+    });
+});
+</script>
+
+
+</body>
+</html>

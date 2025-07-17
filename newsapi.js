@@ -7,16 +7,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const categories = {
     all: "bitcoin OR crypto OR interest rates OR inflation OR economy OR stock market OR gold OR commodities OR recession OR crypto regulation OR crypto news OR artificial intelligence OR biotechnology  OR space exploration OR renewble energy OR bloomberg", 
-    crypto: "bitcoin OR crypto OR blockchain OR crypto regulation OR crypto news OR crypto market sentiment OR institutional adoption of crypto OR crypto security",
+    crypto: "bitcoin OR crypto OR blockchain OR crypto regulation OR crypto news OR crypto market sentiment OR institutional adoption of crypto OR crypto security OR crypto trading strategies OR crypto investment opportunities OR cryptocurrency market trends",
     market: "stock market OR S&P OR Nasdaq OR equities OR bond yields OR major stock indices OR corporate financial statements OR fiscal policy OR interest rates OR inflation and the stock market OR stock market investor sentiment OR stock market technical analysis OR dividens",
-    economy: "inflation OR CPI OR GDP OR recession OR interest rates OR FOMC OR federal reserve OR jerome powell OR global gconomic growth OR inflation rate OR monetary policy OR International Trade OR geopolitics economy OR global economy OR commodity prices OR global dept OR global Labor market OR quantitative easing OR economic growth OR quantitave tightening OR economy US",
+    commodities: "gold OR silver OR oil OR natural gas OR copper OR agricultural commodities OR commodity prices OR commodity market trends OR commodity trading strategies OR commodity supply and demand",
+    technology: "artificial intelligence OR biotechnology OR space exploration OR renewable energy OR technology trends OR technology news OR technology companies OR technology market analysis OR technology investment opportunities",
+    tradewars: "trade wars OR tariffs OR trade agreements OR international trade relations OR global supply chain disruptions OR trade negotiations OR trade imbalances OR trade sanctions OR American Trade OR China trade",
+    stocks: "stock market OR S&P OR Nasdaq OR equities OR bond yields OR major stock indices OR corporate financial statements OR fiscal policy OR interest rates OR inflation and the stock market OR stock market investor sentiment OR stock market technical analysis",
   };
 
   let currentQuery = categories.all;
 
   function fetchNews(query) {
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    const url = `${proxyUrl}https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=en&sortBy=publishedAt&apiKey=${apiKey}`;
+
+    const url = `https://newsapi.org/v2/everything?q=${encodeURIComponent(query)}&language=en&sortBy=publishedAt&apiKey=${apiKey}`;
 
     fetch(url)
       .then(res => {
