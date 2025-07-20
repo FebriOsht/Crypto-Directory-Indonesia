@@ -28,13 +28,6 @@
     "logo": "img/sailly-trading-hub.jpg"
   },
   {
-    "id": "Airdrop by Tokenomy",
-    "name": "Airdrop by Tokenomy",
-    "description": "Komunitas Airdrop Indonesia",
-    "link": "https://airdrop.tokenomy.app/airdrops?tab=foryou",
-    "logo": "img/airdrop-by-tokenomy.jpg"
-  },
-  {
     "id": "Tomket Lovers",
     "name": "Tomket Lovers",
     "description": "Komunitas Crypto dan Airdrop Indonesia",
@@ -58,14 +51,14 @@
   {
     "id": "Web3 Week Asia",
     "name": "Web3 Week Asia",
-    "description": "Market News",
+    "description": "Comunity WEB3 Asia",
     "link": "https://w3w.asia/",
     "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ89jXN2h2uk7U06VlmAJWRtjbO7I3EYmQ0mA&s"
   },
     {
     "id": "Trade With Suli",
     "name": "Trade With Suli",
-    "description": "Market News",
+    "description": "Trading Crypto",
     "link": "https://tradewithsuli.com/",
     "logo": "https://tradewithsuli.com/wp-content/uploads/2025/01/icon-site-suli.png"
   }
